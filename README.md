@@ -4,7 +4,7 @@
 
 ### About
 
-`Kirby Pure` is a plugin that builds upon the Kirby Plainkit. It provides a refined infrastructure and is intended to be used with `Kirby Pure Blocks`. Together, this can serve as a strong foundation for custom projects.
+`Kirby Pure` is a plugin that builds upon the Kirby Plainkit. It provides a refined infrastructure and is intended to be used with [Kirby Pure Blocks](https://github.com/felix-rabe/kirby-pure-blocks). Together, this can serve as a strong foundation for custom projects.
 
 ### Intended strategy
 
