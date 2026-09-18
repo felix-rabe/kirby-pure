@@ -1,0 +1,146 @@
+icon: search
+label: Site SEO
+columns: 
+  main:
+    width: 2/3
+    sections:
+      seofields:
+        type: fields
+        fields:
+          indexHeadline:
+            type: headline
+            label: "Indexing"
+
+          indexPage:
+            label: Allow Indexing
+            type: toggle
+            default: false
+            width: 1/2
+            help: "Enable to allow search engines to index the site."
+
+          seoHeadline:
+            type: headline
+            label: Appearance
+
+          seoTitle:
+            label: Global SEO Title
+            placeholder: "{{ site.title }} – {{ page.title }}"
+            type: text
+            help: Default is "Site Title – Page Title".
+
+          seoDescription:
+            label: Global SEO Description
+            type: text
+            help: "50–160 characters."
+            minlength: 50
+            maxlength: 160
+
+          faviconSvg:
+            label: Favicon (SVG)
+            type: files
+            layout: list
+            width: 1/3
+            max: 1
+            query: site.files.filterBy("extension", "svg")
+            help: "Primary favicon for modern browsers."
+          
+          faviconPng:
+            label: Favicon Fallback (PNG)
+            type: files
+            layout: list
+            width: 1/3
+            max: 1
+            query: site.files.filterBy("extension", "png")
+            help: "Optional PNG fallback. Recommended size: 32×32px."
+
+          appleTouchIcon:
+            label: Apple Touch Icon (PNG)
+            type: files
+            layout: list
+            width: 1/3
+            max: 1
+            query: site.files.filterBy("extension", "png")
+            help: "Optional. Recommended size: 180×180 px for iOS home screen and Safari bookmarks."
+
+          ogImage:
+            label: Open Graph Image
+            type: files
+            layout: cards
+            width: 1/3
+            max: 1
+            help: "This image will be used as the Open Graph (og:image) fallback when sharing pages on social media. Recommended size: 1200×630px."
+            image:
+              ratio: 1200/630
+
+          websiteFilesHeadline:
+            type: headline
+            label: Website Files
+
+
+          robotsTxt:
+            label: robots.txt
+            type: textarea
+            buttons: false
+            spellcheck: false
+            font: monospace
+            width: 1/2
+            placeholder: |
+              User-agent: *
+              Allow: /
+
+              Sitemap: {{ site.url }}/sitemap.xml
+            help: |
+              Content for the generated robots.txt file.
+              [View robots.txt]({{ site.url }}/robots.txt)
+
+          llmsTxt:
+            label: llms.txt
+            type: textarea
+            buttons: false
+            spellcheck: false
+            font: monospace
+            width: 1/2
+            placeholder: |
+              # {{ site.title }}
+
+              > {{ site.homePage.seoDescription.or(site.seoDescription) }}
+            help: |
+              Content for the generated llms.txt file.
+              [View llms.txt]({{ site.url }}/llms.txt)
+
+          schemaHeadline:
+            type: headline
+            label: Structured Data
+
+          schemaJson:
+            label: Schema.org JSON-LD
+            type: textarea
+            buttons: false
+            spellcheck: false
+            font: monospace
+            placeholder: |
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "{{ site.title }}",
+                "url": "{{ site.url }}",
+                "description": "{{ site.homePage.seoDescription.or(site.seoDescription) }}"
+              }
+            help: Leave empty to use the automatically generated WebSite schema based on the site title and SEO description. Enter custom JSON-LD to override it completely.
+
+          sitemapInfo:
+            label: Sitemap
+            type: info
+            theme: none
+            text: |
+              <p>The sitemap is generated automatically. When indexing is disabled, it will be empty.</p>
+              <a href="{{ site.url }}/sitemap.xml" target="_blank" rel="noopener">
+                View sitemap.xml
+              </a>
+
+
+  sidebar:
+    width: 1/3
+    sections:
+      files:
+        type: files

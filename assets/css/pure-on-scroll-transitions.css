@@ -1,0 +1,52 @@
+/* On Scroll Transitions */
+
+/* Shared initial state */
+[data-on-scroll-transition] {
+    opacity: 0;
+    transition: opacity 500ms ease-out, transform 500ms ease-out;
+}
+
+/* Shared visible state */
+[data-on-scroll-transition].visible {
+    opacity: 1;
+}
+
+
+/* Stagger */
+
+[data-on-scroll-transition="stagger"] {
+    transform: none;
+    transition: opacity 0s linear;
+}
+
+
+/* Fade In */
+
+[data-on-scroll-transition="fadeIn"] {
+    transform: none;
+}
+
+
+/* Fade In + Slide Up */
+
+[data-on-scroll-transition="fadeInSlideUp"] {
+    transform: translateY(20px);
+}
+
+[data-on-scroll-transition="fadeInSlideUp"].visible {
+    transform: translateY(0);
+}
+
+
+/* Logo Text */
+
+.logo-text [data-on-scroll-transition] {
+    opacity: 0;
+    transform: scaleX(0);
+    transition: opacity 500ms ease-out, transform 500ms ease-out;
+}
+
+.logo-text [data-on-scroll-transition].visible {
+    opacity: 1;
+    transform: scaleX(1);
+}

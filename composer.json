@@ -1,0 +1,20 @@
+{
+  "name": "felix-rabe/kirby-pure",
+  "description": "Experimental toolkit for Kirby CMS.",
+  "type": "kirby-plugin",
+  "license": "MIT",
+  "homepage": "https://github.com/felix-rabe/kirby-pure",
+  "authors": [
+    {
+      "name": "Felix Rabe",
+      "homepage": "https://www.felixrabe.de"
+    }
+  ],
+  "require": {
+    "getkirby/cms": "^5.0",
+    "getkirby/composer-installer": "^1.2"
+  },
+  "extra": {
+    "installer-name": "kirby-pure"
+  }
+}

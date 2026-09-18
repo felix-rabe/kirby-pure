@@ -1,0 +1,49 @@
+.layout {
+    display: grid;
+    position: relative;
+    width: 100%;
+}
+
+.layout .grid {
+    display: grid;
+    position: relative;
+    width: 100%;
+}
+
+@media screen and (min-width: 992px) {
+    .layout .grid {
+        grid-template-columns: repeat(12, 1fr);
+    }
+}
+
+.layout .grid .column {
+    display: grid;
+    position: relative;
+}
+
+.layout .grid .column .blocks {
+    display: grid;
+    position: relative;
+}
+
+@media screen and (min-width: 992px) {
+    .has-12-spans { grid-column: span 12; }
+    .has-11-spans { grid-column: span 11; }
+    .has-10-spans { grid-column: span 10; }
+    .has-9-spans  { grid-column: span 9; }
+    .has-8-spans  { grid-column: span 8; }
+    .has-7-spans  { grid-column: span 7; }
+    .has-6-spans  { grid-column: span 6; }
+    .has-5-spans  { grid-column: span 5; }
+    .has-4-spans  { grid-column: span 4; }
+    .has-3-spans  { grid-column: span 3; }
+    .has-2-spans  { grid-column: span 2; }
+    .has-1-spans  { grid-column: span 1; }
+}
+
+/* Remove empty layout columns on mobile */
+@media screen and (max-width: 991px) {
+    .layout .grid .column.empty {
+        display: none;
+    }
+}

@@ -1,0 +1,240 @@
+label: Site Settings
+icon: cog
+sections:
+  site:
+    type: fields
+    fields:
+
+      # housekeepingHeadline:
+      #   type: headline
+      #   label: Housekeeping
+
+      # janitor_maintenance:
+      #   type: janitor
+      #   command: 'janitor:maintenance --user {{ user.uuid }}'
+      #   cooldown: 5000
+      #   label: 'Maintenance: {{ site.isUnderMaintenance.ecco("DOWN","UP") }}'
+      #   icon: '{{ site.isUnderMaintenance.ecco("cancel","circle") }}'
+      #   help: Put the site into or out of maintenance mode.
+      #   width: 1/4
+
+      # janitor_flushcache:
+      #   type: janitor
+      #   command: 'cache:flush --site'
+      #   cooldown: 5000
+      #   label: Flush Cache
+      #   icon: refresh
+      #   help: Probably not working on local servers.
+      #   width: 1/4
+
+      # disclaimer:
+      #   type: toggle
+      #   label: Disclaimer
+      #   default: false
+      #   width: 1/4
+      #   help: Shows critical actions for setting up a new website.
+
+      generalHeadline:
+        type: headline
+        label: General
+
+      siteLanguage:
+        label: Site Language
+        type: select
+        options:
+          en: English
+          de: Deutsch
+          fr: Français
+          es: Español
+          it: Italiano
+          pt: Português
+          nl: Nederlands
+          ru: Русский
+          zh: 中文
+          ja: 日本語
+          ko: 한국어
+        default: en
+        required: true
+        width: 1/4
+        help: Will be used for the HTML **lang** attribute for **single-language sites**. Will be overwritten by Kirbys multilingual settings.
+
+      fontSizePrimary:
+        label: Font Size Primary
+        default: false
+        type: number
+        width: 1/4
+        after: px
+        placeholder: Browser Default
+        help: A **number** value, e.g. 15 for 15px.
+
+      fontSizeTablet:
+        label: Font Size Tablet/Laptop
+        default: false
+        type: number
+        width: 1/4
+        after: px
+        placeholder: Font Size Primary
+        help: Font size will be applied from **992px** viewport width.
+
+      fontSizeDesktop:
+        label: Font Size Desktop
+        default: false
+        type: number
+        width: 1/4
+        after: px
+        placeholder: Font Size Tablet/Laptop
+        help: Font size will be applied from **2000px** viewport width.
+
+      onScrollTransitions:
+        label: On Scroll Transitions
+        type: select
+        required: true
+        options:
+          none: None
+          stagger: Stagger
+          fadeIn: Fade In
+          fadeInSlideUp: Fade In + Slide Up
+        default: fadeInSlideUp
+        width: 1/4
+        help: "The transition applied to **layout blocks** when they come into view while scrolling."
+
+      generateThumbs:
+        label: Responsive Image Sizes
+        type: toggle
+        default: false
+        width: 1/4
+        help: Generate responsive image sizes in 400, 600, 800, 1000, 1200, 1520, 2000, 2400 and 3040px width. Default size is 2400px.
+
+      customHeadContent:
+        label: Custom Head Content
+        type: textarea
+        buttons: false
+        spellcheck: false
+        font: monospace
+        placeholder: |
+          <meta name="google-site-verification" content="...">
+          <script> // Custom JavaScript </script>
+        width: 1/4
+
+      colorsHeadline:
+        type: headline
+        label: Colors
+
+      colorPrimary:
+        type: color
+        alpha: true
+        label: Primary Color
+        default: "#000000"
+        placeholder: "#000000"
+        width: 1/4
+        help: Will be used for **text**.
+
+      colorSecondary:
+        type: color
+        alpha: true
+        label: Secondary Color
+        default: "#ffffff"
+        placeholder: "#ffffff"
+        width: 1/4
+        help: Will be used as **background**.
+
+      colorTertiary:
+        type: color
+        alpha: true
+        label: Tertiary Color
+        default: "#0000FF"
+        placeholder: "#0000FF"
+        width: 1/4
+        help: Will be used for **links**.
+
+      colorFourth:
+        type: color
+        alpha: true
+        label: Fourth Color
+        default: "#808080"
+        placeholder: "#808080"
+        width: 1/4
+        help: Will be used for **captions**.
+
+      themeColor:
+        type: color
+        alpha: true
+        label: Theme Color
+        placeholder: Browser Default
+        width: 1/4
+        help: Sets the browser interface color. Leave empty to let the **browser determine it**.
+
+      buttonsHeadline:
+        type: headline
+        label: Buttons
+
+      buttonTextColor:
+        type: color
+        alpha: true
+        label: Button Text Color
+        default: "var(--color-primary)"
+        placeholder: "Primary Color"
+        width: 1/4
+
+      buttonBackgroundColor:
+        type: color
+        alpha: true
+        label: Button Background Color
+        default: "var(--color-secondary)"
+        placeholder: "Secondary Color"
+        width: 1/4
+
+      buttonBorderColor:
+        type: color
+        alpha: true
+        alpha: true
+        label: Button Border Color
+        default: "var(--color-primary)"
+        placeholder: "Primary Color"
+        width: 1/4
+
+      buttonHoverTextColor:
+        type: color
+        alpha: true
+        label: Button Hover/Active Text Color
+        default: "var(--color-secondary)"
+        placeholder: "Secondary Color"
+        width: 1/4
+
+      buttonHoverBackgroundColor:
+        type: color
+        alpha: true
+        label: Button Hover/Active Background Color
+        default: "var(--color-primary)"
+        placeholder: "Primary Color"
+        width: 1/4
+
+      buttonHoverBorderColor:
+        type: color
+        alpha: true
+        label: Button Hover/Active Border Color
+        default: "var(--color-primary)"
+        placeholder: "Primary Color"
+        width: 1/4
+
+      buttonShape:
+        type: toggles
+        label: Button Shape
+        options:
+          - value: squared
+            text: Squared
+          - value: rounded
+            text: Rounded
+          - value: pillshape
+            text: Pill Shape
+        default: pillshape
+        width: 1/4
+      
+      buttonPadding:
+        type: text
+        label: Button Padding
+        placeholder: "var(--size-xs) var(--size-s) calc(var(--size-xs) + 2px) var(--size-s)"
+        default: "var(--size-xs) var(--size-s) calc(var(--size-xs) + 2px) var(--size-s)"
+        width: 1/4
+        help: "CSS padding shorthand, e.g. 'top right bottom left'."
+

@@ -1,0 +1,33 @@
+type: fields
+
+fields:
+
+  seoHeadline:
+    type: headline
+    label: Search Appearance
+
+  seoTitle:
+    label: Page SEO Title
+    type: text
+    placeholder: "{{ site.title }} – {{ page.title }}"
+    help: Default is "Site Title – Page Title". Will override the global SEO title if set.
+
+  seoDescription:
+    label: Page SEO Description
+    type: text
+    help: "50–160 characters. Will override the global SEO description if set."
+    minlength: 50
+    maxlength: 160
+
+  indexHeadline:
+    type: headline
+    label: Indexing
+
+  noindex:
+    label: Exclude from search engines
+    type: toggle
+    text:
+      - "no"
+      - "yes"
+    help: Adds "noindex" to this page if you want to overwrite the global SEO settings for this page.
+    width: 1/2

@@ -1,0 +1,27 @@
+:root{
+    --color-panel-cyan: #cafcfb;
+    --color-panel-magenta: #ffdbff;
+}
+
+.k-field-type-blocks .k-blocks{
+    box-shadow: none!important;
+}
+
+.k-field-type-blocks .k-blocks-list {
+  background-color: var(--panel-color-back);
+}
+
+.k-field-type-blocks .k-block-container{
+    margin-bottom: var(--spacing-2);
+    box-shadow: var(--shadow);
+    border-bottom: none;
+}
+
+.k-help a {
+    color: var(--color-text);
+}
+
+.k-help a:hover {
+    color: var(--color-text);
+    text-decoration: underline;
+}
