@@ -132,6 +132,8 @@ Pure works without these plugins, but the following additions are recommended fo
 
 - [Kirby Pure Blocks](https://github.com/felix-rabe/kirby-pure-blocks) — Flexible blocks and layout tools designed to work with Pure.
 
+- [Kirby Pure Stats](https://github.com/felix-rabe/kirby-pure-stats) — Simple, privacy-friendly page-view statistics.
+
 - [Fingerprint](https://github.com/bnomei/kirby3-fingerprint) — Optional asset cache busting. Pure automatically falls back to Kirby's standard asset helpers when unavailable. Disable HTTPS enforcement when hosting in an HTTP environment via `config.php`
 
 ```php
@@ -146,8 +148,6 @@ Pure works without these plugins, but the following additions are recommended fo
 - [Kirby Trash](https://github.com/sigtrygg-space/kirby-trash) — Adds a trash workflow for deleted pages.
 
 - [Video Thumbnail](https://github.com/yolu-ch/kirby-video-thumbnail) — Generate thumbnails for uploaded videos.
-
-- [Pure Stats](https://github.com/felix-rabe/kirby-pure-stats) — Simple, privacy-friendly page-view statistics.
 
 ## Structure
 
