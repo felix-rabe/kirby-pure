@@ -130,24 +130,24 @@ Custom `robots.txt`, `llms.txt` and `Schema.org` content can optionally be provi
 
 Pure works without these plugins, but the following additions are recommended for a typical setup:
 
-- [Kirby Pure Blocks](https://github.com/felix-rabe/kirby-pure-blocks) — Flexible blocks and layout tools designed to work with Pure.
+- [Kirby Pure Blocks](https://github.com/felix-rabe/kirby-pure-blocks) – Flexible blocks and layout tools designed to work with Pure.
 
-- [Kirby Pure Stats](https://github.com/felix-rabe/kirby-pure-stats) — Simple, privacy-friendly page-view statistics.
+- [Kirby Pure Stats](https://github.com/felix-rabe/kirby-pure-stats) – Simple, privacy-friendly page-view statistics.
 
-- [Fingerprint](https://github.com/bnomei/kirby3-fingerprint) — Optional asset cache busting. Pure automatically falls back to Kirby's standard asset helpers when unavailable. Disable HTTPS enforcement when hosting in an HTTP environment via `config.php`
+- [Fingerprint](https://github.com/bnomei/kirby3-fingerprint) – Optional asset cache busting. Pure automatically falls back to Kirby's standard asset helpers when unavailable. Disable HTTPS enforcement when hosting in an HTTP environment via `config.php`
 
 ```php
 // config.php
 'bnomei.fingerprint.forceHttps' => false,
 ```
 
-- [Kirby Backups](https://github.com/sylvainjule/kirby-backups) — Create and manage content backups from the Panel.
+- [Kirby Backups](https://github.com/sylvainjule/kirby-backups) – Create and manage content backups from the Panel.
 
-- [Visual Block Selector](https://github.com/junohamburg/kirby-visual-block-selector) — Visual block selection in the Panel.
+- [Visual Block Selector](https://github.com/junohamburg/kirby-visual-block-selector) – Visual block selection in the Panel.
 
-- [Kirby Trash](https://github.com/sigtrygg-space/kirby-trash) — Adds a trash workflow for deleted pages.
+- [Kirby Trash](https://github.com/sigtrygg-space/kirby-trash) – Adds a trash workflow for deleted pages.
 
-- [Video Thumbnail](https://github.com/yolu-ch/kirby-video-thumbnail) — Generate thumbnails for uploaded videos.
+- [Video Thumbnail](https://github.com/yolu-ch/kirby-video-thumbnail) – Generate thumbnails for uploaded videos.
 
 ## Structure
 
