@@ -8,13 +8,14 @@
 
 ### Intended strategy
 
-- `Kirby Pure` provides header and footer snippets to utilize site- and seo-settings as well as reusable variables. 
-- `Kirby Pure Blocks` provides image-, video-, swiper-, text- and organizer blocks and image- and video-rendering markups, as well as a rudimentary header and footer navigation.
+- `Kirby CMS Plainkit` provides the foundation.
+- `Kirby Pure` provides header and footer snippets to utilize site and SEO settings as well as reusable variables.
+- `Kirby Pure Blocks` provides image and video rendering markups as well as a set of blocks.
 - `Your Project` provides your fonts, your custom blocks, your layout and everything else.
 
 ### Recommended AI Workflow
 
-Feed `kirby-pure.zip` and `kirby-pure-blocks.zip` to your AI agent and instruct it to build your project as a consecutive plugin and give it to you as `your-project.zip` file. Then start iterating. 
+Feed `kirby-pure.zip` and `kirby-pure-blocks.zip` to your AI agent and instruct it to build your project as a **consecutive plugin** and give it to you as `your-project.zip` file. Then start iterating. 
 
 ## Requirements
 
