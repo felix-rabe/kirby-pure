@@ -4,7 +4,7 @@
 
 ### About
 
-`Kirby Pure` is a plugin that provides an infrastructure for keeping reusable components and entire projects **within the plugin layer** while keeping Kirby's Plainkit clean. It is intended to be used with [Kirby Pure Blocks](https://github.com/felix-rabe/kirby-pure-blocks).
+`Kirby Pure` is a plugin that establishes an infrastructure for keeping reusable components and entire projects **within the plugin layer** while keeping Kirby's Plainkit clean. It is intended to be used with [Kirby Pure Blocks](https://github.com/felix-rabe/kirby-pure-blocks).
 
 ### Intended strategy
 
