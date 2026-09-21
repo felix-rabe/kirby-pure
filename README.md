@@ -22,7 +22,7 @@ site/
 
 ### Recommended AI Workflow
 
-Feed `kirby-pure.zip` and `kirby-pure-blocks.zip` to your AI agent and instruct it to build your project as a **consecutive plugin** and give it to you as `your-project.zip` file. Then start iterating. 
+Feed `kirby-pure.zip` and `kirby-pure-blocks.zip` to your AI agent and instruct it to build your project as a dedicated plugin and give it to you as `your-project.zip` file. Then start iterating. 
 
 ## Requirements
 
