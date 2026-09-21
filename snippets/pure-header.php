@@ -20,8 +20,7 @@
 
 </head>
 
-<body class="<?= $page->slug() ?> <?= $page->blueprint()->title() ?>-template">
-
+<body class="<?= $page->slug() ?><?= $page->parent() ? ' ' . $page->parent()->slug() . '-subpage' : '' ?> <?= Str::slug($page->blueprint()->title()) ?>-template">
     <!-- Site Header -->
 
     <?php if (kirby()->plugin('kirbypure/blocks')): ?>
