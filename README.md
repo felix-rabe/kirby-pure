@@ -70,7 +70,7 @@ snippet('pure-footer');
 
 ### Font
 
-**Pure** includes **TeX Gyre Heros** as its open source default font. The webfont files are part of the plugin and are loaded through `pure-fonts.css`.
+Pure includes `TeX Gyre Heros` as its open source default font. The webfont files are part of the plugin and are loaded through `pure-fonts.css`.
 
 ### On-Scroll Transitions
 
