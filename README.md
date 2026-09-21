@@ -4,14 +4,21 @@
 
 ### About
 
-`Kirby Pure` is a plugin that builds upon the Kirby Plainkit. It provides a refined infrastructure and is intended to be used with [Kirby Pure Blocks](https://github.com/felix-rabe/kirby-pure-blocks). Together, this can serve as a strong foundation for custom projects.
+`Kirby Pure` is a plugin that provides an infrastructure for keeping reusable components and entire projects **within the plugin layer** while keeping Kirby's Plainkit clean. It is intended to be used with [Kirby Pure Blocks](https://github.com/felix-rabe/kirby-pure-blocks).
 
 ### Intended strategy
 
+```text
+site/
+└── plugins/
+    ├── kirby-pure/
+    ├── kirby-pure-blocks/
+    └── your-project/
+```
 - `Kirby CMS Plainkit` provides the foundation.
 - `Kirby Pure` provides header and footer snippets to utilize site and SEO settings as well as reusable variables.
 - `Kirby Pure Blocks` provides image and video rendering markups as well as a set of blocks.
-- `Your Project` provides your fonts, your custom blocks, your layout and everything else.
+- `Your Project` provides your fonts, custom blocks, layout and all other project-specific functionality.
 
 ### Recommended AI Workflow
 
