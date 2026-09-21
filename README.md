@@ -74,6 +74,7 @@ Kirby Pure automatically loads its core stylesheets:
 pure.css
 pure-layout.css
 pure-fonts.css
+pure-on-scroll-transitions.css
 ```
 
 ### Font
