@@ -70,11 +70,11 @@ snippet('pure-footer');
 
 ### Font
 
-Pure includes `TeX Gyre Heros` as its open source default font. The webfont files are part of the plugin and are loaded through `pure-fonts.css`.
+Kirby Pure includes `TeX Gyre Heros` as its open source default font. The webfont files are part of the plugin and are loaded through `pure-fonts.css`.
 
 ### On-Scroll Transitions
 
-Pure includes an optional on-scroll transition system that can be configured in the Panel site settings. Available effects are `None`, `Stagger`, `Fade In`, and `Fade In + Slide Up`. Elements can participate in the transition system using the global helper:
+Kirby Pure includes an optional on-scroll transition system that can be configured in the Panel site settings. Available effects are `None`, `Stagger`, `Fade In`, and `Fade In + Slide Up`. Elements can participate in the transition system using the global helper:
 
 ```html
 <div <?= pureOnScrollAttribute() ?>>
