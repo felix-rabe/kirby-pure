@@ -15,7 +15,7 @@ site/
     ├── kirby-pure-blocks/
     └── your-project/
 ```
-- `Kirby CMS Plainkit` provides the foundation.
+- `Kirby CMS Plainkit` provides the foundation and content organization.
 - `Kirby Pure` provides header and footer snippets to utilize site and SEO settings as well as reusable variables.
 - `Kirby Pure Blocks` provides image and video rendering markups as well as a set of blocks.
 - `Your Project` provides your fonts, custom blocks, layout and all other project-specific functionality.
