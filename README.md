@@ -68,15 +68,6 @@ snippet('pure-footer');
 
 ## Core Assets
 
-Kirby Pure automatically loads its core stylesheets:
-
-```text
-pure.css
-pure-layout.css
-pure-fonts.css
-pure-on-scroll-transitions.css
-```
-
 ### Font
 
 **Pure** includes **TeX Gyre Heros** as its open source default font. The webfont files are part of the plugin and are loaded through `pure-fonts.css`.
