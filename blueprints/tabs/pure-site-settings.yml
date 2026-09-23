@@ -98,13 +98,6 @@ sections:
         width: 1/4
         help: "The transition applied to **layout blocks** when they come into view while scrolling."
 
-      generateThumbs:
-        label: Responsive Image Sizes
-        type: toggle
-        default: false
-        width: 1/4
-        help: Generate responsive image sizes in 400, 600, 800, 1000, 1200, 1520, 2000, 2400 and 3040px width. Default size is 2400px.
-
       customHeadContent:
         label: Custom Head Content
         type: textarea
