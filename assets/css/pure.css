@@ -278,7 +278,7 @@ h6 {
 /* .list-block li { padding-left: 0.2em; } */
 
 /* Corners for images and videos */
-.corners-rounded { border-radius: var(--size-s); }
+.corners-rounded { border-radius: var(--size-xxs); }
 .corners-circle  { border-radius: 50%; }
 
 .align-center { margin-left: auto; margin-right: auto; }
@@ -302,18 +302,22 @@ button {
     border: 1px solid var(--btn-border-color);
     border-radius: var(--btn-border-radius);
     padding: var(--btn-padding);
-    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    transition: var(--btn-transition);
     font-family: var(--font-family-primary);
     font-weight: var(--font-weight-primary);
     letter-spacing: var(--letter-spacing-primary);
 }
 
-/* Hover state */
-.btn:hover,
-button:hover {
-    color: var(--btn-hover-color);
-    background-color: var(--btn-hover-background-color);
-    border-color: var(--btn-hover-border-color);
+/* Hover state — only on devices with a real hover-capable pointer.
+   Prevents sticky :hover states after tapping buttons on touch devices. */
+@media (hover: hover) and (pointer: fine) {
+    .btn:hover,
+    button:hover {
+        color: var(--btn-hover-color);
+        text-decoration: none;
+        background-color: var(--btn-hover-background-color);
+        border-color: var(--btn-hover-border-color);
+    }
 }
 
 .btn--discrete {

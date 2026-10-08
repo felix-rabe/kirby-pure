@@ -231,3 +231,14 @@ sections:
         width: 1/4
         help: "CSS padding shorthand, e.g. 'top right bottom left'."
 
+      buttonTransition:
+        type: toggles
+        label: Button Hover Transition
+        options:
+          - value: smooth
+            text: Smooth
+          - value: hard
+            text: Hard
+        default: smooth
+        width: 1/4
+

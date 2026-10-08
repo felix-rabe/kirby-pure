@@ -111,6 +111,18 @@ document.addEventListener('DOMContentLoaded', () => {
   function observeBlocksChildren(options = {}) {
     const mergedOptions = { ...defaultOptions, ...options };
 
+    const thresholds = Array.isArray(mergedOptions.threshold)
+      ? mergedOptions.threshold
+      : [mergedOptions.threshold];
+
+    const visibilityThreshold = Math.min(
+      ...thresholds.filter(value => typeof value === 'number' && value > 0),
+      1
+    );
+
+    const meetsVisibilityThreshold = ratio =>
+      ratio >= visibilityThreshold;
+
     const observerOptions = {
       root: mergedOptions.root,
       rootMargin: mergedOptions.rootMargin,
@@ -120,7 +132,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries, observer) => {
 
       const intersectingElements = entries
-        .filter(entry => entry.isIntersecting)
+        .filter(entry =>
+          entry.isIntersecting &&
+          meetsVisibilityThreshold(entry.intersectionRatio)
+        )
         .map(entry => entry.target);
 
       if (!intersectingElements.length) {
@@ -150,10 +165,29 @@ document.addEventListener('DOMContentLoaded', () => {
     elements.forEach(element => {
       const rect = element.getBoundingClientRect();
 
-      if (
-        rect.top < window.innerHeight &&
-        rect.bottom > 0
-      ) {
+      const visibleWidth = Math.max(
+        0,
+        Math.min(rect.right, window.innerWidth) - Math.max(rect.left, 0)
+      );
+
+      const visibleHeight = Math.max(
+        0,
+        Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0)
+      );
+
+      const elementArea = rect.width * rect.height;
+      const visibleArea = visibleWidth * visibleHeight;
+      const visibilityRatio = elementArea > 0
+        ? visibleArea / elementArea
+        : 0;
+
+      /*
+       * For the initial page-load sequence, any element that already touches
+       * the viewport belongs to the initial batch — even if only a few pixels
+       * are visible. The regular IntersectionObserver keeps using the configured
+       * visibility threshold for elements that enter later while scrolling.
+       */
+      if (visibilityRatio > 0) {
         initiallyVisible.push(element);
       } else {
         remaining.push(element);
@@ -194,10 +228,47 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Observe all remaining transition elements normally
-    remaining.forEach(element => {
-      observer.observe(element);
-    });
+    /*
+     * Do not let the IntersectionObserver create a second batch while the
+     * initial stagger is still running. Otherwise an element that only just
+     * enters the viewport can receive a fresh, short delay and appear before
+     * later elements from the initial batch.
+     *
+     * Start observing the remaining elements only after the largest initial
+     * transition delay has elapsed. With no initial batch, observation starts
+     * immediately.
+     */
+    const startObservingRemaining = () => {
+      remaining.forEach(element => {
+        observer.observe(element);
+      });
+    };
+
+    if (initiallyVisible.length) {
+      const sortedInitialElements = sortElements([
+        ...initiallyVisible
+      ]);
+
+      const maxInitialDelay = sortedInitialElements.reduce(
+        (maxDelay, element, index) => Math.max(
+          maxDelay,
+          getDelay(
+            element,
+            index,
+            sortedInitialElements.length,
+            mergedOptions
+          )
+        ),
+        0
+      );
+
+      window.setTimeout(
+        startObservingRemaining,
+        maxInitialDelay + mergedOptions.delayIncrement
+      );
+    } else {
+      startObservingRemaining();
+    }
   }
 
   /*

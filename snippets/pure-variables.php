@@ -37,6 +37,7 @@
 
     /* Button padding */
     --btn-padding: <?= htmlspecialchars($site->buttonPadding()->or('var(--size-xs) var(--size-s) calc(var(--size-xs) + 2px) var(--size-s)')) ?>;
+    --btn-transition: <?= $site->buttonTransition()->or('smooth')->value() === 'hard' ? 'none' : 'color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease' ?>;
 
     /* Button shape */
     <?php
@@ -46,7 +47,7 @@
                 echo '--btn-border-radius: 0;';
                 break;
             case 'rounded':
-                echo '--btn-border-radius: var(--size-xs);';
+                echo '--btn-border-radius: var(--size-xxs);';
                 break;
             case 'pillshape':
                 echo '--btn-border-radius: 9999px;';
