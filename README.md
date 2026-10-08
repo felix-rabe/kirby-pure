@@ -2,11 +2,11 @@
 
 > **Experimental Early Alpha Release**
 
-### About
+## About
 
 Kirby Pure is a plugin that establishes an infrastructure for keeping reusable components and entire projects **within the plugin layer** while keeping Kirby's Plainkit clean. It is intended to be used with [Kirby Pure Blocks](https://github.com/felix-rabe/kirby-pure-blocks).
 
-### Intended strategy
+### Intended Strategy
 
 ```text
 site/
@@ -22,7 +22,7 @@ site/
 
 ### Recommended AI Workflow
 
-Feed `kirby-pure.zip` and `kirby-pure-blocks.zip` to your AI agent and instruct it to build your project as a dedicated plugin and give it to you as `your-project.zip` file. Then start iterating. 
+Feed `kirby-pure.zip` and `kirby-pure-blocks.zip` to your AI agent and instruct it to build your project as a dedicated plugin and return it as `your-project.zip`. Then start iterating.
 
 ## Requirements
 
@@ -42,7 +42,7 @@ Kirby Pure automatically loads its core CSS and JavaScript assets.
 
 ### Site Blueprint
 
-Pure provides the following site blueprint tabs for your site.yml:
+Pure provides reusable site blueprint tabs for your `site.yml`:
 
 ```yaml
 tabs:
@@ -55,7 +55,7 @@ tabs:
 
 ### Header and Footer
 
-Add the Pure header and footer snippets to your project template to utilize the site- and seo-settings:
+Add the Pure header and footer snippets to your project template to use the site and SEO settings:
 
 ```php
 <?php
@@ -64,7 +64,7 @@ snippet('pure-footer');
 ?>
 ```
 
-`pure-header` should be rendered at the beginning of the page template and `pure-footer` at the end, for they provide a `html`, `head`, `body`, and `footer` markup.
+`pure-header` should be rendered at the beginning of the page template and `pure-footer` at the end. Together, they provide the HTML document structure, including `head`, `body`, and `footer`.
 
 ## Core Assets
 
@@ -98,7 +98,7 @@ Kirby Pure provides the basic infrastructure for search-engine indexing and mach
 
 ### Global SEO
 
-Global SEO settings are configured through the Pure SEO site tab we already integrated above. 
+Global SEO settings are configured through the Pure SEO site tab described above.
 
 ### Page SEO
 
@@ -133,7 +133,7 @@ Pure works without these plugins, but the following additions are recommended fo
 
 - [Kirby Pure Stats](https://github.com/felix-rabe/kirby-pure-stats) – Simple, privacy-friendly page-view statistics.
 
-- [Fingerprint](https://github.com/bnomei/kirby3-fingerprint) – Optional asset cache busting. Pure automatically falls back to Kirby's standard asset helpers when unavailable. Disable HTTPS enforcement when hosting in an HTTP environment via `config.php`
+- [Fingerprint](https://github.com/bnomei/kirby3-fingerprint) – Optional asset cache busting. Pure automatically falls back to Kirby's standard asset helpers when unavailable. Disable HTTPS enforcement when hosting in an HTTP environment via `config.php`:
 
 ```php
 // config.php
@@ -147,6 +147,19 @@ Pure works without these plugins, but the following additions are recommended fo
 - [Kirby Trash](https://github.com/sigtrygg-space/kirby-trash) – Adds a trash workflow for deleted pages.
 
 - [Video Thumbnail](https://github.com/yolu-ch/kirby-video-thumbnail) – Generate thumbnails for uploaded videos.
+
+## Deployment
+
+When deploying a Kirby project as a ZIP archive, check Unix file permissions before creating the archive. Incorrect permissions may cause `403 Forbidden` errors on some shared hosting environments.
+
+For a prepared deployment copy, directories should generally use `755` and regular files `644`:
+
+```bash
+find . -type d -exec chmod 755 {} +
+find . -type f -exec chmod 644 {} +
+```
+
+Run these commands only in the deployment copy, excluding `.git` directories and files that require executable permissions.
 
 ## Structure
 
