@@ -25,7 +25,6 @@ sections:
           ja: 日本語
           ko: 한국어
         default: en
-        required: true
         width: 1/4
         help: Will be used for the HTML **lang** attribute for **single-language sites**. Will be overwritten by Kirbys multilingual settings.
 
@@ -59,7 +58,6 @@ sections:
       onScrollTransitions:
         label: On Scroll Transitions
         type: select
-        required: true
         options:
           none: None
           stagger: Stagger
