@@ -5,35 +5,6 @@ sections:
     type: fields
     fields:
 
-      # housekeepingHeadline:
-      #   type: headline
-      #   label: Housekeeping
-
-      # janitor_maintenance:
-      #   type: janitor
-      #   command: 'janitor:maintenance --user {{ user.uuid }}'
-      #   cooldown: 5000
-      #   label: 'Maintenance: {{ site.isUnderMaintenance.ecco("DOWN","UP") }}'
-      #   icon: '{{ site.isUnderMaintenance.ecco("cancel","circle") }}'
-      #   help: Put the site into or out of maintenance mode.
-      #   width: 1/4
-
-      # janitor_flushcache:
-      #   type: janitor
-      #   command: 'cache:flush --site'
-      #   cooldown: 5000
-      #   label: Flush Cache
-      #   icon: refresh
-      #   help: Probably not working on local servers.
-      #   width: 1/4
-
-      # disclaimer:
-      #   type: toggle
-      #   label: Disclaimer
-      #   default: false
-      #   width: 1/4
-      #   help: Shows critical actions for setting up a new website.
-
       generalHeadline:
         type: headline
         label: General
@@ -94,7 +65,7 @@ sections:
           stagger: Stagger
           fadeIn: Fade In
           fadeInSlideUp: Fade In + Slide Up
-        default: fadeInSlideUp
+        default: none
         width: 1/4
         help: "The transition applied to **layout blocks** when they come into view while scrolling."
 
