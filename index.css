@@ -25,3 +25,10 @@
     color: var(--color-text);
     text-decoration: underline;
 }
+/* Login image injected by Pure's Panel JavaScript. */
+.k-login-form .pure-login-logo {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: var(--spacing-10);
+}

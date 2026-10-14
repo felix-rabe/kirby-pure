@@ -41,6 +41,8 @@ $pageDescription = $page->seoDescription()->isNotEmpty()
     ? $page->seoDescription()->value()
     : $site->seoDescription()->value();
 
+$pageDescription = (string) ($pageDescription ?? '');
+
 // OPEN GRAPH IMAGE
 $seoImage = $page->ogImage()->toFile()
     ?? $site->ogImage()->toFile();

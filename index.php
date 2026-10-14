@@ -105,6 +105,31 @@ Kirby::plugin('kirbypure/core', [
     ],
 
     'routes' => [
+        // Panel login image: use a project-plugin logo when available,
+        // otherwise return Pure's instructional placeholder.
+        [
+            'pattern' => 'pure-login-logo',
+            'method' => 'GET',
+            'action' => function () {
+                $logo = null;
+                $pluginsDirectory = kirby()->root('plugins');
+
+                // Project plugins are separate from Kirby Pure itself.
+                foreach (glob($pluginsDirectory . '/*/assets/icons/log-in-logo.png') ?: [] as $candidate) {
+                    if (is_file($candidate) && strpos($candidate, '/kirby-pure/') === false) {
+                        $logo = $candidate;
+                        break;
+                    }
+                }
+
+                $logo ??= __DIR__ . '/assets/icons/log-in-logo.png';
+
+                return new \Kirby\Cms\Response(
+                    file_get_contents($logo),
+                    'image/png'
+                );
+            }
+        ],
 
         // Sitemap
         [
