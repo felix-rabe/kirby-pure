@@ -125,6 +125,22 @@ The sitemap includes indexable pages only. `robots.txt` follows the site's index
 
 Custom `robots.txt`, `llms.txt` and `Schema.org` content can optionally be provided through the site's SEO settings.
 
+### Canonical URLs and Domain Redirects
+
+Pure generates canonical URLs and Open Graph URLs from each page URL. To avoid duplicate domain variants, configure a permanent server-side redirect from `www` to non-`www` (or vice versa), according to your preferred domain.
+
+For Apache, add the following immediately after `RewriteEngine On` in the site's `.htaccess`, before Kirby's rewrite rules:
+
+```apache
+# Redirect www to non-www (replace example.com with your domain)
+RewriteCond %{HTTP_HOST} ^www\.example\.com$ [NC]
+RewriteRule ^ https://example.com%{REQUEST_URI} [R=301,L]
+```
+
+Use the opposite direction if `www` is your preferred domain. Ensure the preferred domain is also used for the site's configured URL, sitemap, and internal links. This redirect is handled by the web server, not by Pure.
+
+Verify the response with `curl -I https://www.example.com/`: it should return `301` and a `Location` header pointing to the preferred domain. Check that subpages redirect to their corresponding paths as well.
+
 ## Recommended Plugins
 
 Pure works without these plugins, but the following additions are recommended for a typical setup:
