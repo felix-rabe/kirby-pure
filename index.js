@@ -1,23 +1,25 @@
-// Kirby Panel mounts asynchronously; observe until the login form appears.
+// Display Pure's bundled login image. To customize, replace
+// assets/icons/log-in-logo.png in this plugin.
 (() => {
-  const insertLogo = () => {
+  const prefix = location.pathname.split('/panel')[0];
+  const logo = `${prefix}/media/plugins/kirbypure/core/icons/log-in-logo.png`;
+
+  function updateLogo() {
     const form = document.querySelector('.k-login-form');
-    if (!form || form.querySelector('.pure-login-logo')) return;
+    if (!form) return;
+    let img = form.querySelector('.pure-login-logo');
+    if (!img) {
+      img = document.createElement('img');
+      img.className = 'pure-login-logo';
+      img.alt = '';
+      form.prepend(img);
+    }
+    if (img.getAttribute('src') !== logo) {
+      img.onerror = () => { img.style.display = 'none'; };
+      img.src = logo;
+    }
+  }
 
-    const img = document.createElement('img');
-    img.className = 'pure-login-logo';
-    img.alt = '';
-    // Resolve correctly when Kirby is installed in a subdirectory.
-    const panelPath = window.location.pathname;
-    const panelIndex = panelPath.indexOf('/panel');
-    const base = panelIndex >= 0 ? panelPath.slice(0, panelIndex) : '';
-    img.src = `${base}/pure-login-logo`;
-    form.prepend(img);
-  };
-
-  insertLogo();
-  new MutationObserver(insertLogo).observe(document.documentElement, {
-    childList: true,
-    subtree: true
-  });
+  updateLogo();
+  new MutationObserver(updateLogo).observe(document.documentElement, {childList: true, subtree: true});
 })();

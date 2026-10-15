@@ -223,16 +223,14 @@ MIT © 2026 Felix Rabe
 
 ### Panel login logo
 
-Pure displays a login image above the Kirby Panel login form. It uses a real
-`<img>` element, so the original aspect ratio is preserved without a fixed height.
+Pure displays its bundled image above the Kirby Panel login form.
+To customize it, replace this file with your own PNG:
 
-Place a PNG in your **project plugin**:
+`site/plugins/kirby-pure/assets/icons/log-in-logo.png`
 
-`site/plugins/your-project/assets/icons/log-in-logo.png`
+The image keeps its original aspect ratio; a width around 480 px is recommended.
+No configuration or project-plugin registration is needed.
 
-If no project-plugin logo exists, Pure displays its bundled instructional
-placeholder. No `panel.css` config entry is required. Recommended image width:
-480 px; height can vary.
-
-If multiple project plugins provide the same file, only the first match is
-used; keep just one project logo per site.
+**Note:** Updating or replacing the Pure plugin can overwrite a customized logo.
+If that happens, the bundled default image will appear again. Replace the file
+once more to restore your project's logo.
