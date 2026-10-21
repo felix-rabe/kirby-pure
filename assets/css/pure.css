@@ -286,8 +286,7 @@ h6 {
 .align-right { margin-left: auto; margin-right: 0; }
 
 /* Buttons */
-.btn,
-button {
+.btn {
     all: unset; /* reset browser styles */
     display: inline-flex;   /* shrink to content */
     align-items: center;
@@ -311,8 +310,7 @@ button {
 /* Hover state — only on devices with a real hover-capable pointer.
    Prevents sticky :hover states after tapping buttons on touch devices. */
 @media (hover: hover) and (pointer: fine) {
-    .btn:hover,
-    button:hover {
+    .btn:hover {
         color: var(--btn-hover-color);
         text-decoration: none;
         background-color: var(--btn-hover-background-color);
