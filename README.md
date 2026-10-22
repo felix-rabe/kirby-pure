@@ -166,16 +166,22 @@ Pure works without these plugins, but the following additions are recommended fo
 
 ## Deployment
 
-When deploying a Kirby project as a ZIP archive, check Unix file permissions before creating the archive. Incorrect permissions may cause `403 Forbidden` errors on some shared hosting environments.
+### File Permissions
 
-For a prepared deployment copy, directories should generally use `755` and regular files `644`:
+When deploying a Kirby project as a ZIP archive, ensure correct Unix file permissions to prevent `403 Forbidden` errors on shared hosting environments.
+
+Directories should generally use `755` and regular files `644`:
 
 ```bash
-find . -type d -exec chmod 755 {} +
-find . -type f -exec chmod 644 {} +
+find . -type d -not -path '*/.git*' -exec chmod 755 {} +
+find . -type f -not -path '*/.git/*' -exec chmod 644 {} +
 ```
 
-Run these commands only in the deployment copy, excluding `.git` directories and files that require executable permissions.
+Run these commands only in a prepared deployment copy, preserving executable permissions where required.
+
+### Media Folder
+
+Exclude the locally generated `media/` folder from the deployment ZIP. Kirby will regenerate it, including plugin assets, on the server with the appropriate permissions.
 
 ## Structure
 
@@ -220,17 +226,3 @@ kirby-pure/
 ## License
 
 MIT © 2026 Felix Rabe
-
-### Panel login logo
-
-Pure displays its bundled image above the Kirby Panel login form.
-To customize it, replace this file with your own PNG:
-
-`site/plugins/kirby-pure/assets/icons/log-in-logo.png`
-
-The image keeps its original aspect ratio; a width around 480 px is recommended.
-No configuration or project-plugin registration is needed.
-
-**Note:** Updating or replacing the Pure plugin can overwrite a customized logo.
-If that happens, the bundled default image will appear again. Replace the file
-once more to restore your project's logo.
