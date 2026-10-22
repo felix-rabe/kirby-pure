@@ -3,6 +3,7 @@
     --font-family-primary: "TeX Gyre Heros", helvetica, arial, sans-serif;
     --font-weight-primary: 400;
     --letter-spacing-primary: 0.02em;
+    --text-underline-thickness: <?= preg_match('/^(?:auto|from-font|(?:\d*\.)?\d+(?:px|em|rem))$/', trim($site->underlineThickness()->or('auto')->value())) ? htmlspecialchars(trim($site->underlineThickness()->or('auto')->value()), ENT_QUOTES, 'UTF-8') : 'auto' ?>;
 
     --font-size-primary: <?= $site->fontSizePrimary()->isNotEmpty() ? htmlspecialchars($site->fontSizePrimary()) . 'px' : 'initial' ?>;
     --font-size-tablet: <?= $site->fontSizeTablet()->isNotEmpty() ? htmlspecialchars($site->fontSizeTablet()) . 'px' : 'var(--font-size-primary)' ?>;

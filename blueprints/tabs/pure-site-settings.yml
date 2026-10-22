@@ -55,6 +55,14 @@ sections:
         placeholder: Font Size Tablet/Laptop
         help: Font size will be applied from **2000px** viewport width.
 
+      underlineThickness:
+        label: Underline Thickness
+        type: text
+        default: auto
+        placeholder: auto
+        width: 1/4
+        help: "CSS thickness, e.g. **1px**, **0.05em** or **auto**."
+
       onScrollTransitions:
         label: On Scroll Transitions
         type: select

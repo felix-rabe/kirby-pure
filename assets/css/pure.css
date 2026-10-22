@@ -66,6 +66,11 @@ li {
     list-style: none;
 }
 
+a,
+u {
+    text-decoration-thickness: var(--text-underline-thickness, auto) !important;
+}
+
 a {
     color: var(--color-tertiary);
     text-decoration: none;
