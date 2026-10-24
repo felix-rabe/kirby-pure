@@ -149,12 +149,17 @@ Pure works without these plugins, but the following additions are recommended fo
 
 - [Kirby Pure Stats](https://github.com/felix-rabe/kirby-pure-stats) – Simple, privacy-friendly page-view statistics.
 
-- [Fingerprint](https://github.com/bnomei/kirby3-fingerprint) – Optional asset cache busting. Pure automatically falls back to Kirby's standard asset helpers when unavailable. Disable HTTPS enforcement when hosting in an HTTP environment via `config.php`:
+- [Fingerprint](https://github.com/bnomei/kirby3-fingerprint) – Optional asset cache busting. Pure automatically falls back to Kirby's standard asset helpers when unavailable. 
 
-```php
-// config.php
-'bnomei.fingerprint.forceHttps' => false,
-```
+  Disable HTTPS enforcement when hosting in an HTTP environment via `config.php`:
+
+  ```php
+  // config.php
+  'bnomei.fingerprint.forceHttps' => false,
+  ```
+
+  When using Fingerprint in project plugins, calculate CSS and JS asset versions from the original `assets/` files, not the published `media/plugins/` copies, while keeping Kirby's regular media URLs. This ensures changes are visible without a hard reload.
+
 
 - [Kirby Backups](https://github.com/sylvainjule/kirby-backups) – Create and manage content backups from the Panel.
 
