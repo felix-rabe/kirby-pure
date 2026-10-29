@@ -67,21 +67,28 @@ Kirby::plugin('kirbypure/core', [
                     '/media/plugins/kirbypure/core/js/pure-on-scroll-transitions.js';
             }
 
+            // Use original asset timestamps for cache busting, but keep Kirby media URLs.
+            $assetUrl = static function (string $path): string {
+                $relative = preg_replace('~^/media/plugins/kirbypure/core/~', '', $path);
+                $original = __DIR__ . '/assets/' . $relative;
+                $url = url(ltrim($path, '/'));
+
+                return is_file($original)
+                    ? $url . (str_contains($url, '?') ? '&' : '?') . 'v=' . filemtime($original)
+                    : $url;
+            };
+
             $css = '';
             $js = '';
 
             foreach ($stylesheets as $path) {
-                $css .= class_exists('Bnomei\\Fingerprint')
-                    ? Bnomei\Fingerprint::css($path)
-                    : css($path);
+                $css .= css($assetUrl($path));
 
                 $css .= PHP_EOL;
             }
 
             foreach ($javascript as $path) {
-                $js .= class_exists('Bnomei\\Fingerprint')
-                    ? Bnomei\Fingerprint::js($path)
-                    : js($path);
+                $js .= js($assetUrl($path));
 
                 $js .= PHP_EOL;
             }
