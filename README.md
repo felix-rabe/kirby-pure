@@ -74,6 +74,16 @@ snippet('pure-footer');
 
 Kirby Pure includes `TeX Gyre Heros` as its open source default font. The webfont files are part of the plugin and are loaded through `pure-fonts.css`.
 
+### Project Assets
+
+Pure provides `pureCss()` and `pureJs()` helpers for loading project-plugin assets with content-based cache busting. Versions are calculated from the original asset files while retaining Kirby’s regular media URLs.
+
+```php
+// In your project plugin’s index.php
+pureCss('your-project', 'css/your-project.css');
+pureJs('your-project', 'js/your-project.js');
+```
+
 ### On-Scroll Transitions
 
 Kirby Pure includes an optional on-scroll transition system that can be configured in the Panel site settings. Available effects are `None`, `Stagger`, `Fade In`, and `Fade In + Slide Up`. Elements can participate in the transition system using the global helper:
@@ -151,20 +161,6 @@ Pure works without these plugins, but the following additions are recommended fo
 
 - [Kirby Pure Stats](https://github.com/felix-rabe/kirby-pure-stats) – Simple, privacy-friendly page-view statistics.
 
-- [Fingerprint](https://github.com/bnomei/kirby3-fingerprint) – Optional asset cache busting. Pure automatically falls back to Kirby's standard asset helpers when unavailable. 
-
-  - In your project plugin's `index.php`, calculate CSS and JS asset versions from the original assets/ files, not the published media/plugins/ copies, while keeping Kirby's regular media URLs.
-
-  - Disable HTTPS enforcement when hosting in an HTTP environment via `config.php`:
-
-    ```php
-    // config.php
-    'bnomei.fingerprint.forceHttps' => false,
-    ```
-
-  
-
-
 - [Kirby Backups](https://github.com/sylvainjule/kirby-backups) – Create and manage content backups from the Panel.
 
 - [Visual Block Selector](https://github.com/junohamburg/kirby-visual-block-selector) – Visual block selection in the Panel.
@@ -215,7 +211,8 @@ kirby-pure/
 │       └── pure-seo.yml
 │
 ├── helpers/
-│   └── on-scroll-transition.php
+│   ├── on-scroll-transition.php
+│   └── asset.php
 │
 ├── snippets/
 │   ├── pure-header.php

@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/helpers/on-scroll-transition.php';
+require_once __DIR__ . '/helpers/asset.php';
 
 Kirby::plugin('kirbypure/core', [
     'blueprints' => [
@@ -67,14 +68,15 @@ Kirby::plugin('kirbypure/core', [
                     '/media/plugins/kirbypure/core/js/pure-on-scroll-transitions.js';
             }
 
-            // Use original asset timestamps for cache busting, but keep Kirby media URLs.
+            // Version Pure's own assets from their original file contents.
             $assetUrl = static function (string $path): string {
                 $relative = preg_replace('~^/media/plugins/kirbypure/core/~', '', $path);
                 $original = __DIR__ . '/assets/' . $relative;
                 $url = url(ltrim($path, '/'));
 
                 return is_file($original)
-                    ? $url . (str_contains($url, '?') ? '&' : '?') . 'v=' . filemtime($original)
+                    ? $url . (str_contains($url, '?') ? '&' : '?')
+                        . 'v=' . substr(hash_file('sha256', $original), 0, 12)
                     : $url;
             };
 
