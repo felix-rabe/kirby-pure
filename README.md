@@ -72,7 +72,7 @@ snippet('pure-footer');
 
 ### Font
 
-Kirby Pure includes `TeX Gyre Heros` as its open source default font. Four Styles `Regular`, `Italic`, `Bold`, `Bold Italic` are available. The webfont files are part of the plugin and are loaded through `pure-fonts.css`.
+Kirby Pure includes `TeX Gyre Heros` as its open source default font. Four styles `Regular`, `Italic`, `Bold`, `Bold Italic` are available. The webfont files are part of the plugin and are loaded through `pure-fonts.css`.
 
 ### Project Assets
 
