@@ -6,3 +6,30 @@
     font-weight: 400;
     font-style: normal;
 }
+
+@font-face {
+    font-family: "TeX Gyre Heros";
+    src:
+        url("../fonts/TeX-Gyre-Heros/texgyreheros-italic.woff2") format("woff2"),
+        url("../fonts/TeX-Gyre-Heros/texgyreheros-italic.woff") format("woff");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "TeX Gyre Heros";
+    src:
+        url("../fonts/TeX-Gyre-Heros/texgyreheros-bold.woff2") format("woff2"),
+        url("../fonts/TeX-Gyre-Heros/texgyreheros-bold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "TeX Gyre Heros";
+    src:
+        url("../fonts/TeX-Gyre-Heros/texgyreheros-bolditalic.woff2") format("woff2"),
+        url("../fonts/TeX-Gyre-Heros/texgyreheros-bolditalic.woff") format("woff");
+    font-weight: 700;
+    font-style: italic;
+}
