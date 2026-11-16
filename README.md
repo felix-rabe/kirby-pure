@@ -1,6 +1,6 @@
 # Kirby Pure
 
-![Kirby Pure](assets/icons/pure-hero-01.png)
+![Kirby Pure](assets/icons/pure-hero-02.png)
 
 > **Experimental Early Alpha Release**
 
