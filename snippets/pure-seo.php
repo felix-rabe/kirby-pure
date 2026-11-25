@@ -49,6 +49,18 @@ $seoImage = $page->ogImage()->toFile()
 
 // CANONICAL URL
 $canonicalUrl = $page->url();
+
+// Only advertise language variants that have their own translation.
+// The default language remains available through Kirby's standard content fallback.
+$seoAlternates = [];
+if (kirby()->multilang()) {
+    foreach (kirby()->languages() as $language) {
+        $code = $language->code();
+        if ($language->isDefault() || $page->translation($code)->exists()) {
+            $seoAlternates[$code] = $page->url($code);
+        }
+    }
+}
 ?>
 
 <title><?= html($pageTitle) ?></title>
@@ -64,6 +76,12 @@ $canonicalUrl = $page->url();
 <?php endif ?>
 
 <link rel="canonical" href="<?= esc($canonicalUrl, 'attr') ?>">
+<?php foreach ($seoAlternates as $code => $alternateUrl): ?>
+<link rel="alternate" hreflang="<?= esc($code, 'attr') ?>" href="<?= esc($alternateUrl, 'attr') ?>">
+<?php endforeach ?>
+<?php if ($seoAlternates && kirby()->defaultLanguage()): ?>
+<link rel="alternate" hreflang="x-default" href="<?= esc($page->url(kirby()->defaultLanguage()->code()), 'attr') ?>">
+<?php endif ?>
 
 <!-- Open Graph -->
 <meta property="og:title" content="<?= esc($pageTitle, 'attr') ?>">

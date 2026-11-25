@@ -24,6 +24,7 @@ fields:
     label: Indexing
 
   noindex:
+    translate: false
     label: Exclude from search engines
     type: toggle
     text:
